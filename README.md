@@ -5,6 +5,10 @@
 
 ## Overview
 
+<p align="center">
+  <img src="qe-fusion_fig.png" width="500">
+</p>
+
 ## Installation
 
 This project requires `Python 3.10`, `PyTorch 1.13.1`, and transformers `4.34.0`.
