@@ -5,8 +5,8 @@
 
 ## Overview
 
-<p align="center">
-  <img src="qe-fusion_fig.pdf" width="500">
+<p align="left">
+  <img src="qe-fusion_fig.png" width="800">
 </p>
 
 ## Installation
