@@ -6,7 +6,7 @@
 ## Overview
 
 <p align="center">
-  <img src="qe-fusion_fig.png" width="500">
+  <img src="qe-fusion_fig.pdf" width="500">
 </p>
 
 ## Installation
