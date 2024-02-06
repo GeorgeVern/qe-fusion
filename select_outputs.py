@@ -355,7 +355,7 @@ def main(args):
                 sys = combine_hyps(detok_outputs, refs, in_data, beam=args.beam, metric=args.criterion,
                                    keep_kbest=args.kbest, ws=WINDOW_SIZE)
 
-                exp_name += 'fusion-beam{}-kbest{}'.format(args.beam, args.kbest)
+                exp_name += '-fusion-beam{}-kbest{}'.format(args.beam, args.kbest)
 
             if args.criterion == 'cometqe' and COMETQE_MODEL != "wmt22-cometkiwi-da":
                 exp_name = exp_name.replace(args.criterion, COMETQE_MODEL)

@@ -48,9 +48,7 @@ def main(args):
             torch_type = torch.float16
         else:
             torch_type = 'auto'
-        model = AutoModelForCausalLM.from_pretrained(model_dict[args.model], cache_dir=MODELS_DIR,
-                                                     token="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",
-                                                     torch_dtype=torch_type)
+        model = AutoModelForCausalLM.from_pretrained(model_dict[args.model], cache_dir=MODELS_DIR, torch_dtype=torch_type)
         if 'alma' in args.model:
             model = PeftModel.from_pretrained(model, model_dict[args.model] + '-LoRA')
     tokenizer = AutoTokenizer.from_pretrained(model_dict[args.model], token="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")
