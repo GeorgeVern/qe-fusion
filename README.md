@@ -1,6 +1,6 @@
 # QE-fusion
 
-> [**Don't Rank, Combine! Combining Machine Translation Hypotheses Using Quality Estimation**]([https://arxiv.org/abs/2305.13514v2](https://arxiv.org/abs/2401.06688))  
+> [**Don't Rank, Combine! Combining Machine Translation Hypotheses Using Quality Estimation**](https://arxiv.org/abs/2401.06688)  
 > Giorgos Vernikos, Andrei Popescu-Belis
 
 ## Overview
