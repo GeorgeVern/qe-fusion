@@ -51,7 +51,7 @@ def main(args):
         model = AutoModelForCausalLM.from_pretrained(model_dict[args.model], cache_dir=MODELS_DIR, torch_dtype=torch_type)
         if 'alma' in args.model:
             model = PeftModel.from_pretrained(model, model_dict[args.model] + '-LoRA')
-    tokenizer = AutoTokenizer.from_pretrained(model_dict[args.model], token="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")
+    tokenizer = AutoTokenizer.from_pretrained(model_dict[args.model])
 
     if 'nllb' in args.model:
         lang_id = tokenizer.lang_code_to_id[nllb_lang_codes[tgt_lang]]
