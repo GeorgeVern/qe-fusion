@@ -48,7 +48,8 @@ def main(args):
             torch_type = torch.float16
         else:
             torch_type = 'auto'
-        model = AutoModelForCausalLM.from_pretrained(model_dict[args.model], cache_dir=MODELS_DIR, torch_dtype=torch_type)
+        model = AutoModelForCausalLM.from_pretrained(model_dict[args.model], cache_dir=MODELS_DIR,
+                                                     torch_dtype=torch_type)
         if 'alma' in args.model:
             model = PeftModel.from_pretrained(model, model_dict[args.model] + '-LoRA')
     tokenizer = AutoTokenizer.from_pretrained(model_dict[args.model])
@@ -98,7 +99,7 @@ if __name__ == "__main__":
                         choices=['polylm-1.7b', 'xglm-2.9b', 'llama2-7b', 'llama2-13b', 'mistral',
                                  'alma-7b', 'alma-13b', 'tower', 'nllb-1.3b', 'nllb-3.3b'],
                         help='the model')
-    parser.add_argument('--split', type=str, choices=['train', 'validation', 'test'], help='the split')
+    parser.add_argument('--split', type=str, choices=['train', 'validation', 'test'], default='test', help='the split')
     parser.add_argument('--bsize', default=5, type=int, help="the batch size")
     parser.add_argument('--lp', type=str, choices=['en-de', 'zh-en', 'en-ru', 'nl-en', 'de-fr', 'is-en'],
                         help='the language pair')
