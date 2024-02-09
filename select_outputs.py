@@ -176,13 +176,6 @@ def combine_hyps(outputs, refs, in_data, beam=5, metric='bleu', keep_kbest=0, ws
     return [final_outputs[key] for key in sorted(final_outputs.keys())]
 
 
-def _multiply_data(data, factor_list):
-    mult_data = []
-    for id, factor in enumerate(factor_list):
-        mult_data += [data[id]] * factor
-    return mult_data
-
-
 def find_best_hyps(outputs, refs, input_data, metric='bleu', k_best=1):
     """
     Function to find the best candidate hypotheses for each input sentence
