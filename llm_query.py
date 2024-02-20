@@ -16,6 +16,7 @@ model_dict = {'polylm-1.7b': 'DAMO-NLP-MT/polylm-1.7b',
               'alma-7b': 'haoranxu/ALMA-7B-Pretrain',
               'alma-13b': 'haoranxu/ALMA-13B-Pretrain',
               'tower': 'Unbabel/TowerBase-7B-v0.1',
+              'towerinstruct': 'Unbabel/TowerInstruct-v0.1',
               'nllb-1.3b': 'facebook/nllb-200-1.3B',
               'nllb-3.3b': 'facebook/nllb-200-3.3B',
               }
@@ -55,6 +56,8 @@ def main(args):
     tokenizer = AutoTokenizer.from_pretrained(model_dict[args.model])
 
     if 'nllb' in args.model:
+        if src_lang != 'en':
+            tokenizer.src_lang = nllb_lang_codes[src_lang]
         lang_id = tokenizer.lang_code_to_id[nllb_lang_codes[tgt_lang]]
     elif 'llama2' in args.model or 'mistral' in args.model or 'polylm' in args.model:
         tokenizer.pad_token = tokenizer.bos_token
