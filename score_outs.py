@@ -125,7 +125,7 @@ if __name__ == "__main__":
     parser.add_argument('--model', type=str,
                         choices=['polylm-1.7b', 'xglm-2.9b', 'llama2-7b', 'llama2-13b', 'mistral',
                                  'alma-7b', 'alma-13b', 'tower', 'nllb-1.3b', 'nllb-3.3b'], help='the model name')
-    parser.add_argument('--cands_pool', type=list, default=[5], help='number of candidates')
+    parser.add_argument('--cands_pool', type=int, nargs='*', default=[5], help='number of candidates')
     parser.add_argument('--metrics', nargs='+', default=['bleu', 'chrf', 'comet', 'bleurt'],
                         choices=['bleu', 'chrf', 'comet', 'cometqe', 'bleurt'], help='the metrics to use')
     parser.add_argument('--criterion', default='cometqe/cometqe-fusion-beam5-kbest0', type=str,

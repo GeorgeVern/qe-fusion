@@ -85,9 +85,9 @@ def combine_hyps(outputs, refs, in_data, beam=5, metric='bleu', keep_kbest=0, ws
         outputs = [x[keep_kbest:] for x in outputs]
     else:
         outputs, scores = find_best_hyps(outputs, refs, in_data, metric=metric, k_best=keep_kbest)
-        for id in range(len(outputs)):
-            for cand, score in zip(outputs[id], scores[id]):
-                computed_scores[id][cand] = score
+    for id in range(len(outputs)):
+        for cand, score in zip(outputs[id], scores[id]):
+            computed_scores[id][cand] = score
 
     # Create a list of all differing spans for all references
     all_diffs = [compute_diffs(hyps[0], hyps[1:], ws=ws) if len(hyps) > 1 else {} for hyps in outputs]
@@ -368,7 +368,7 @@ if __name__ == "__main__":
     parser.add_argument('--model', type=str,
                         choices=['polylm-1.7b', 'xglm-2.9b', 'llama2-7b', 'llama2-13b', 'mistral',
                                  'alma-7b', 'alma-13b', 'tower', 'nllb-1.3b', 'nllb-3.3b'], help='the model name')
-    parser.add_argument('--cands_pool', type=list, default=[5], help='number of candidates')
+    parser.add_argument('--cands_pool', type=int, nargs='*', default=[5], help='number of candidates')
     parser.add_argument('--criterion', choices=['modelprob', 'bleu', 'comet', 'cometqe'], default='comet',
                         help='the criterion used to select outputs')
     parser.add_argument('--method', choices=['rank', 'mbr', 'fusion'],
