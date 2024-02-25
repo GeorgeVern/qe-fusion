@@ -40,7 +40,7 @@ python llm_query.py --model llama2-7b --lp en-de --bsize 4 --decoding_alg sample
 To fuse the generated hypotheses use the `select_outputs.py` script:
 
 ```
-python select_outputs.py --model llama2-7b --lp en-de --generation sample-t0.6 --cands_pool [5] --criterion cometqe --method fusion 
+python select_outputs.py --model llama2-7b --lp en-de --generation sample-t0.6 --cands_pool 5 --criterion cometqe --method fusion 
 ```
 > To implement reranking approaches such as QE-reranking and MBR modify the `--criterion` and `--method` parameters accordingly.
 
@@ -49,7 +49,7 @@ python select_outputs.py --model llama2-7b --lp en-de --generation sample-t0.6 -
 To evaluate the quality of the produced translations use the `score_outs.py` script:
 
 ```
-python score_outs.py --model llama2-7b --lp en-de --cands_pool [5] --generation sample-t0.6 --criterion cometqe/cometqe-fusion-beam5-kbest0  --metrics ['bleu', 'chrf', 'comet', 'bleurt']
+python score_outs.py --model llama2-7b --lp en-de --cands_pool 5 --generation sample-t0.6 --criterion cometqe/cometqe-fusion-beam5-kbest0  --metrics ['bleu', 'chrf', 'comet', 'bleurt']
 ```
 
 ---
