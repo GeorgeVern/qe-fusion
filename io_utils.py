@@ -2,7 +2,6 @@ import numpy as np
 import os
 
 FILE_PATH = 'data/{}/'
-MODELS_DIR = '/home/georgios.vernikos/data-local/hf_models/'
 
 def read_textfile(filename, step=0):
     """
