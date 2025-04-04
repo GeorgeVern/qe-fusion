@@ -2,7 +2,7 @@ import numpy as np
 import os
 
 FILE_PATH = 'data/{}/'
-MODELS_DIR = 'hf_models/
+MODELS_DIR = 'hf_models/'
 
 def read_textfile(filename, step=0):
     """
